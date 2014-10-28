@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1:3306
--- GÃ©nÃ©rÃ© le :  Mar 07 Octobre 2014 Ã  14:29
+-- Généré le :  Mar 28 Octobre 2014 à 15:45
 -- Version du serveur :  5.5.39
 -- Version de PHP :  5.4.32
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de donnÃ©es :  `mygf`
+-- Base de données :  `mygf`
 --
 
 -- --------------------------------------------------------
@@ -52,8 +52,16 @@ CREATE TABLE `categories` (
   `deleted` datetime DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `price` double NOT NULL,
-  `week` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `weekyear` int(11) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`, `created`, `modified`, `deleted`, `user_id`, `price`, `weekyear`) VALUES
+(1, 'test1', '2014-10-28 00:00:00', NULL, NULL, 1, 156, 114),
+(2, 'TestWeek2', '2014-10-28 00:00:00', NULL, NULL, 1, 45456, 214);
 
 -- --------------------------------------------------------
 
@@ -69,10 +77,19 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL,
   `deleted` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Index pour les tables exportÃ©es
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `created`, `modified`, `deleted`) VALUES
+(3, 'yan', '$2a$10$X0IQnc4G1YtAn.uZXU9INefTA0.ZCGlqo', 'yan@asd.com', '2014-10-28 14:43:42', '2014-10-28 14:43:42', NULL),
+(6, 'philippe', '$2a$10$EH0qG6daZQ02so7Qlf1ijuEkecxu6Wa1H', 'ph@ph.com', '2014-10-28 15:01:03', '2014-10-28 15:01:03', NULL),
+(5, 'phil', '$2a$10$zZciqlETgYqrkgKuHPGNYu3n4o5Druner', 'phil@hotmail.com', '2014-10-28 14:48:17', '2014-10-28 14:48:17', NULL);
+
+--
+-- Index pour les tables exportées
 --
 
 --
@@ -94,7 +111,7 @@ ALTER TABLE `users`
  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportÃ©es
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -106,12 +123,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
